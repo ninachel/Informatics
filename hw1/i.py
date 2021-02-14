@@ -4,17 +4,24 @@ for i in range(n):
     matrix[i] = list(map(int, input().split()))
 
 saddle_points = 0
-imax = 0
+min_indices = []
+max_indices = []
 jmin = 0
 for i in range(n):
     for j in range(m):
-        if matrix[i][j] < matrix[i][jmin]:
-            jmin = j
-    for k in range(m):
-        if matrix[k][jmin] > matrix[imax][jmin]:
-            imax = k
+        if matrix[i][j] < matrix[jmin][j]:
+            jmin = i
+    min_indices.append(jmin)
+imax = 0
+for j in range(m):
+    for i in range(n):
+        if matrix[i][j] > matrix[imax][j]:
+            imax = i
+    max_indices.append(imax)
+
+for i in range(n):
     for j in range(m):
-        if matrix[i][j] == matrix[imax][jmin]:
+        if matrix[i][j] == matrix[min_indices[i]][max_indices[j]]:
             saddle_points += 1
 
 print(saddle_points)
