@@ -1,12 +1,5 @@
-from bisect import bisect_left
-
-
 def closest_num(lst, key):
-    i = bisect_left(lst, key)
-    if i != len(lst) and lst[i] == key:
-        return i
-    else:
-        pass
+    pass
 
 
 n, k = map(int, input().split())
