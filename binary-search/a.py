@@ -4,6 +4,9 @@ from bisect import bisect_left
 def closest_num(lst, key):
     lower_bound_index = bisect_left(lst, key)
 
+    if lower_bound_index == len(lst):
+        return lst[-1]
+
     if abs(key - lst[lower_bound_index]) >= abs(key - lst[lower_bound_index - 1]):
         return lst[lower_bound_index - 1]
 
