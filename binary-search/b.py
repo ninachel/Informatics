@@ -1,4 +1,7 @@
-import math
-
 n = int(input())
-print(int((math.log(n, 2) // 1) + 1))
+steps = 0
+m = 1
+while m < n:
+    m *= 2
+    steps += 1
+print(steps)
