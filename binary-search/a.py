@@ -11,6 +11,19 @@ def lower_bound(lst, key):
     return left
 
 
+def upper_bound(lst, key):
+    left = 0
+    right = len(lst)
+    while left < right:
+        mid = (left + right) // 2
+        if lst[mid] > key:
+            right = mid
+        else:
+            left = mid + 1
+
+    return left
+
+
 def closest_num(lst, key):
     lower_bound_index = lower_bound(lst, key)
 
