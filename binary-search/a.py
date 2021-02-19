@@ -1,8 +1,18 @@
-from bisect import bisect_left
+def lower_bound(lst, key):
+    left = 0
+    right = len(lst)
+    while left < right:
+        mid = (left + right) // 2
+        if lst[mid] < key:
+            left = mid + 1
+        else:
+            right = mid
+
+    return left
 
 
 def closest_num(lst, key):
-    lower_bound_index = bisect_left(lst, key)
+    lower_bound_index = lower_bound(lst, key)
 
     if lower_bound_index == len(lst):
         return lst[-1]
